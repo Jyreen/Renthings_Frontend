@@ -1,5 +1,6 @@
 <div class="app-container" [ngClass]="{ 'bg-light': account }">
     <!-- main nav -->
+    <!--
     <nav class="navbar navbar-expand navbar-dark bg-dark" *ngIf="account">
 
         <a class="navbar-brand" href="#">
@@ -19,88 +20,43 @@
             <a (click)="logout()" class="nav-item nav-link">Logout</a>
         </div>
     </nav>
-      <header id="header">
-        <div id="header-wrap">
-          <nav class="primary-nav padding-small">
-            <div class="container">
-              <div class="row d-flex align-items-center">
-                <div class="col-lg-2 col-md-2">
-                  <div class="main-logo">
-                    <a href="index.html">
-                      <img src="images/main-logo.png" alt="logo">
-                    </a>
-                  </div>
+    -->
+      
+    <header id="header" *ngIf="account" style="background-color: #ffffff; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25); padding: 10px;">
+      <div id="header-wrap">
+        <nav class="primary-nav padding-small">
+          <div class="container">
+            <div class="row d-flex align-items-center">
+              <div class="col-lg-2 col-md-2">
+                <div class="main-logo">
+                  <a href="index.html">
+                    <img src="assets/Images/Renthings logo.png" style="height: 150px; width: 100%; object-fit: cover; border-radius: 10px;" alt="logo">
+                  </a>
                 </div>
-                <div class="col-lg-10 col-md-10">
-                  <div class="navbar">
-    
-                    <div id="main-nav" class="stellarnav d-flex justify-content-end right">
-                      <ul class="menu-list">
-    
-                        <li class="menu-item has-sub">
-                          <a href="index.html" class="item-anchor d-flex align-item-center" data-effect="Home">Home<i class="icon icon-chevron-down"></i></a>
-                          <ul class="submenu">
-                            <li><a href="index.html" class="item-anchor">Home</a></li>
-                            <li><a href="home2.html" class="item-anchor">Home v2<span class="text-primary"> (PRO)</span></a></li>
-                          </ul>
-                        </li>
-    
-                        <li><a href="about.html" class="item-anchor active" data-effect="About">About</a></li>
-    
-                        <li class="menu-item has-sub">
-                          <a href="shop.html" class="item-anchor d-flex align-item-center" data-effect="Shop">Shop<i class="icon icon-chevron-down"></i></a>
-                          <ul class="submenu">
-                            <li><a href="shop.html" class="item-anchor">Shop</a></li>
-                            <li><a href="shop-slider.html" class="item-anchor">Shop slider<span class="text-primary"> (PRO)</span></a></li>
-                            <li><a href="shop-grid.html" class="item-anchor">Shop grid<span class="text-primary"> (PRO)</span></a></li>
-                            <li><a href="shop-list.html" class="item-anchor">Shop list<span class="text-primary"> (PRO)</span></a></li>
-                            <li><a href="single-product.html" class="item-anchor">Single product<span class="text-primary"> (PRO)</span></a></li>
-                            <li><a href="cart.html" class="item-anchor">Cart<span class="text-primary"> (PRO)</span></a></li>
-                            <li><a href="wishlist.html" class="item-anchor">Wishlist<span class="text-primary"> (PRO)</span></a></li>
-                            <li><a href="checkout.html" class="item-anchor">Checkout<span class="text-primary"> (PRO)</span></a></li>
-                          </ul>
-                        </li>
-    
-                        <li class="menu-item has-sub">
-                          <a href="#" class="item-anchor d-flex align-item-center" data-effect="Pages">Pages<i class="icon icon-chevron-down"></i></a>
-                          <ul class="submenu">
-                            <li><a href="coming-soon.html" class="item-anchor">Coming soon<span class="text-primary"> (PRO)</span></a></li>
-                            <li><a href="login.html" class="item-anchor">Login<span class="text-primary"> (PRO)</span></a></li>
-                            <li><a href="faqs.html" class="item-anchor">FAQs<span class="text-primary"> (PRO)</span></a></li>
-                            <li><a href="styles.html" class="item-anchor">Styles</a></li>
-                            <li><a href="thank-you.html" class="item-anchor">Thankyou</a></li>
-                            <li><a href="error.html" class="item-anchor">Error page<span class="text-primary"> (PRO)</span></a></li>
-                          </ul>
-                        </li>
-    
-                        <li class="menu-item has-sub">
-                          <a href="blog.html" class="item-anchor d-flex align-item-center" data-effect="Blog">Blog<i class="icon icon-chevron-down"></i></a>
-                          <ul class="submenu">
-                            <li><a href="blog.html" class="item-anchor">Blog</a></li>
-                            <li><a href="blog-sidebar.html" class="item-anchor">Blog with sidebar<span class="text-primary"> (PRO)</span></a></li>
-                            <li><a href="blog-masonry.html" class="item-anchor">Blog masonry<span class="text-primary"> (PRO)</span></a></li>
-                            <li><a href="single-post.html" class="item-anchor">Single post</a></li>
-                          </ul>
-                        </li>
-    
-                        <li><a href="contact.html" class="item-anchor" data-effect="Contact">Contact</a></li>
-    
-                      </ul>
-                    </div>
-    
+              </div>
+              <div class="col-lg-10 col-md-10">
+                <div class="navbar">
+  
+                  <div id="main-nav" class="stellarnav d-flex justify-content-end right">
+                    <ul class="menu-list">
+                      <li><a routerLink="/home" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="item-anchor" style="font-size: large;">Home</a></li>
+                      <li><a routerLink="/rent" class="item-anchor" data-effect="Contact">Rent items</a></li>
+                      <li><a routerLink="/about" class="item-anchor" data-effect="Contact">About</a></li>
+                      <li><a routerLink="/contact" class="item-anchor" data-effect="Contact">Contact us</a></li>
+
+                      <a *ngIf="account.role === Role.Admin" routerLink="/admin" routerLinkActive="active" class="nav-item nav-link">Admin</a>
+                      <li><a routerLink="/profile" routerLinkActive="active" class="item-anchor">Profile</a></li>
+                      <li><a (click)="logout()" class="item-anchor" data-effect="Contact" style="cursor: pointer;">Logout</a></li>
+                    </ul>
                   </div>
                 </div>
               </div>
             </div>
-          </nav>
-        </div>
-      </header>
-
-
-    <!-- subnav router outlet -->
-    <router-outlet name="subnav"></router-outlet>
-
-
+          </div>
+        </nav>
+      </div>
+    </header>
+	<!-- End Header Area -->
     <!-- main router outlet -->
     <router-outlet></router-outlet>
 </div>

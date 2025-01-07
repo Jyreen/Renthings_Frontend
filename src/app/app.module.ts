@@ -13,6 +13,7 @@ import { AppComponent } from './app.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { HomeComponent } from './home/home.component';
+import { RentItemsComponent } from './rent-items/rent-items.component';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { HomeComponent } from './home/home.component';
         AppComponent,
         LandingPageComponent,
         AboutUsComponent,
-        HomeComponent
+        HomeComponent,
+        RentItemsComponent
     ],
     providers: [
         { provide: APP_INITIALIZER, useFactory: appInitializer, multi: true, deps: [AccountService] },

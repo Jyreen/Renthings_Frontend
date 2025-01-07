@@ -7,6 +7,7 @@ import { Role } from './_models';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { HomeComponent } from './home/home.component';
+import { RentItemsComponent } from './rent-items/rent-items.component';
 
 
 
@@ -19,7 +20,7 @@ const routes: Routes = [
     { path: 'about', component: AboutUsComponent },
     { path: 'home', component: HomeComponent},
     { path: 'profile', loadChildren: profileModule, canActivate: [AuthGuard] },
-
+    { path: 'rent', component: RentItemsComponent },
     { path: '**', redirectTo: '' },
 
     
