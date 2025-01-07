@@ -19,6 +19,8 @@ export class ListComponent implements OnInit {
         acc_role: null,
         acc_acceptTerms: '',
         acc_image: '',
+        acc_status: '',
+        acc_subscription:''
     };
     isEditing = false;
     showDetailsModal = false;

@@ -41,6 +41,8 @@
                                             <th scope="col">Name</th>
                                             <th scope="col">Email</th>
                                             <th scope="col">Role</th>
+                                            <th scope="col">Account Status</th>
+                                            <th scope="col">Subscription Status</th>
                                             <th scope="col">Actions</th>
                                         </tr>
                                     </thead>
@@ -50,6 +52,8 @@
                                             <td>{{ account.acc_firstName }} {{ account.acc_lastName }}</td>
                                             <td>{{ account.acc_email }}</td>
                                             <td>{{ account.acc_role }}</td>
+                                            <td>{{ account.acc_status }}</td>
+                                            <td>{{ account.acc_subscription }}</td>
                                             <td>
                                                 <!-- Edit button to open the modal for editing the account -->
                                                 <a routerLink="edit/{{account.id}}" class="btn btn-sm btn-primary mr-1">Edit</a> &nbsp;

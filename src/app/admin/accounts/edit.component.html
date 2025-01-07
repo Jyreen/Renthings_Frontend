@@ -2,7 +2,7 @@
     <div class="card-header">
         <h2 class="mt-2">Edit Account</h2>
     </div>
-    <div class="card-body shadow" style="background: white; border-radius: 8px;">
+    <div class="card-body shadow" style="background: rgb(207, 91, 91); border-radius: 8px;">
         <form [formGroup]="form" (ngSubmit)="onSubmit()">
             <div class="form-row">
                 <div class="form-group col">
@@ -42,8 +42,33 @@
                         <div *ngIf="f.acc_role.errors.required">Role is required</div>
                     </div>
                 </div>
+                <div class="form-group col">
+                    <label>Account Status</label>
+                    <select formControlName="acc_status" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.acc_status.errors }">
+                        <option value="">Select status</option>
+                        <option value="Active">Activate</option>
+                        <option value="Inactive">Deactivate</option>
+                        <option value="Suspended">Suspended</option>
+                    </select>
+                    <div *ngIf="submitted && f.acc_status.errors" class="invalid-feedback">
+                        <div *ngIf="f.acc_status.errors.required">Account Status is required</div>
+                    </div>
+                </div>
             </div>
-        <br>
+            <div class="form-row">
+                <div class="form-group col">
+                    <label>Subscription Status</label>
+                    <select formControlName="acc_subscription.status" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.acc_subscription?.status?.errors }">
+                        <option value="">Select subscription status</option>
+                        <option value="active">Active</option>
+                        <option value="disabled">Inactive</option>
+                    </select>
+                    <div *ngIf="submitted && f.acc_subscription?.status?.errors" class="invalid-feedback">
+                        <div *ngIf="f.acc_subscription?.status?.errors.required">Subscription Status is required</div>
+                    </div>
+                </div>
+            </div>
+            <br>
             <div class="form-group">
                 <button [disabled]="loading" class="btn btn-primary">
                     <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
