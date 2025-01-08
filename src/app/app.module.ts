@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms'; // Import FormsModule
 import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-
+import { CommonModule } from '@angular/common';
 
 import { AppRoutingModule } from './app-routing.module';
 import { JwtInterceptor, ErrorInterceptor, appInitializer } from './_helpers';
@@ -14,6 +14,8 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { HomeComponent } from './home/home.component';
 import { RentItemsComponent } from './rent-items/rent-items.component';
+import { ItemDetailsComponent } from './rent-items/item-details.component';
+import { ListItemComponent } from './list-item/list-item.component';
 
 
 @NgModule({
@@ -22,14 +24,17 @@ import { RentItemsComponent } from './rent-items/rent-items.component';
         FormsModule,
         ReactiveFormsModule,
         HttpClientModule,
-        AppRoutingModule
+        AppRoutingModule,
+        CommonModule
     ],
     declarations: [
         AppComponent,
         LandingPageComponent,
         AboutUsComponent,
         HomeComponent,
-        RentItemsComponent
+        RentItemsComponent,
+        ItemDetailsComponent, 
+        ListItemComponent
     ],
     providers: [
         { provide: APP_INITIALIZER, useFactory: appInitializer, multi: true, deps: [AccountService] },

@@ -8,6 +8,8 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { HomeComponent } from './home/home.component';
 import { RentItemsComponent } from './rent-items/rent-items.component';
+import { ItemDetailsComponent } from './rent-items/item-details.component';
+import { ListItemComponent } from './list-item/list-item.component';
 
 
 
@@ -21,8 +23,11 @@ const routes: Routes = [
     { path: 'home', component: HomeComponent},
     { path: 'profile', loadChildren: profileModule, canActivate: [AuthGuard] },
     { path: 'rent', component: RentItemsComponent },
-    { path: '**', redirectTo: '' },
+    { path: 'item-detail', component: ItemDetailsComponent},
+    { path: 'list', component: ListItemComponent},
 
+
+    { path: '**', redirectTo: '' },
     
 ];
 
