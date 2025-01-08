@@ -1,0 +1,215 @@
+<div class="dashboard-container">
+    <main>
+      <div class="ag-format-container">
+        <br><br>
+  
+        <!-- Welcome Section -->
+        <div class="welcome-section">
+          <h1>Welcome, <span id="acc_name">Admin</span>!</h1>
+          <p>Here's an overview of the platform's activity. Keep up the great work!</p>
+        </div>
+  
+        <br>
+  
+  
+        <br>
+  
+        <!-- Charts Section -->
+        <div class="charts-section">
+          <h2><ion-icon name="bar-chart-outline"></ion-icon> Monthly Progress</h2>
+          <div class="charts-wrapper">
+            <div class="chart-container">
+              <canvas id="donationsChart"></canvas>
+            </div>
+            <div class="chart-container">
+              <canvas id="usersChart"></canvas>
+            </div>
+          </div>
+        </div>
+  
+        <br>
+
+  </div>
+  
+  <style>
+  .ag-format-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  /* Welcome Section */
+  .welcome-section {
+    text-align: center;
+    margin: 40px 0;
+    padding: 20px 30px;
+    background: #f0f4f7;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .welcome-section h1 {
+    font-size: 40px;
+    font-weight: 700;
+    color: #333;
+  }
+  
+  .welcome-section p {
+    font-size: 18px;
+    color: #666;
+  }
+  
+  /* Calendar Section */
+  .calendar-section {
+    margin: 40px 0;
+    padding: 25px 30px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .calendar-section h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .calendar-wrapper {
+    padding: 15px;
+    background: #f9fafb;
+    border-radius: 12px;
+  }
+  
+  /* Charts Section */
+  .charts-section {
+    padding: 30px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  
+  .charts-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 20px;
+  }
+  
+  .chart-container {
+    flex: 1 1 45%;
+    min-width: 300px;
+    max-width: 45%;
+    padding: 20px;
+    background: #fafafa;
+    border-radius: 12px;
+  }
+  
+  /* Stats Cards */
+  .ag-courses_box {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+  }
+  
+  .ag-courses_item {
+    flex: 1 1 calc(33.333% - 40px);
+    background: #fff;
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  .ag-courses_item:hover {
+    transform: translateY(-10px);
+  }
+  
+  .ag-courses-item_icon {
+    font-size: 38px;
+    margin-bottom: 15px;
+  }
+  
+  .ag-courses-item_title {
+    font-size: 22px;
+    margin-bottom: 15px;
+    font-weight: 600;
+  }
+  
+  .ag-courses-item_date-box {
+    font-size: 20px;
+    margin-bottom: 15px;
+    color: #666;
+  }
+  
+  .ag-courses-item_date {
+    font-weight: 600;
+    color: #f9b234;
+  }
+  
+  .progress-container {
+    background-color: #bab6b6;
+    border-radius: 5px;
+    height: 12px;
+    width: 100%;
+    margin-top: 10px;
+    position: relative;
+  }
+  
+  .progress-bar {
+    background-color: #4caf50;
+    height: 100%;
+    width: 0;
+    border-radius: 5px;
+    transition: width 0.5s ease;
+  }
+  
+  .goal-text {
+    color: #999;
+    font-weight: 600;
+    margin-top: 5px;
+    font-size: 16px;
+  }
+  
+  @media only screen and (max-width: 979px) {
+    .ag-courses_item {
+      flex: 1 1 calc(50% - 30px);
+    }
+  
+    .chart-container {
+      flex: 1 1 100%;
+    }
+  }
+  
+  @media only screen and (max-width: 767px) {
+    .ag-format-container {
+      width: 96%;
+    }
+  }
+  
+  @media only screen and (max-width: 639px) {
+    .ag-courses_item {
+      flex-basis: 100%;
+    }
+  
+    .chart-container {
+      flex-basis: 100%;
+    }
+  
+    .calendar-section, .charts-section {
+      padding: 15px;
+    }
+  
+    .welcome-section {
+      padding: 15px;
+    }
+  }
+  </style>
+  
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/5.5.2/collection/components/icon/icon.min.css" rel="stylesheet">
+  <script type="module" src="https://cdn.jsdelivr.net/npm/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://cdn.jsdelivr.net/npm/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>

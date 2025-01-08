@@ -16,6 +16,7 @@ import { MessageComponent } from './messaging/message.component';
 
 const accountModule = () => import('./accounts/account.module').then(x => x.AccountModule);
 const profileModule = () => import('./profile/profile.module').then(x => x.ProfileModule);
+const adminModule   = () => import('./admin/admin.module').then(x => x.AdminModule);
 
 const routes: Routes = [
     { path: 'account', loadChildren: accountModule },
@@ -24,9 +25,12 @@ const routes: Routes = [
     { path: 'home', component: HomeComponent},
     { path: 'profile', loadChildren: profileModule, canActivate: [AuthGuard] },
     { path: 'rent', component: RentItemsComponent },
+    { path: 'admin', loadChildren: adminModule, canActivate: [AuthGuard], data: { roles: [Role.Admin] }},
+
     { path: 'item-detail', component: ItemDetailsComponent},
     { path: 'list', component: ListItemComponent},
     { path: 'message', component: MessageComponent},
+
 
     { path: '**', redirectTo: '' },
     

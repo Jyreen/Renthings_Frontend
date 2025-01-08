@@ -25,6 +25,10 @@
               "src/assets"
             ],
             "styles": [
+              
+              "src/assets/admin-boostrap/css/styles.css",
+              "src/assets/admin-boostrap/css/style.min.css",
+              
               "src/assets/ultras-1.0.0/css/normalize.css",
               "src/assets/ultras-1.0.0/icomoon/icomoon.css",
               "src/assets/ultras-1.0.0/css/vendor.css",
@@ -33,6 +37,11 @@
               "src/assets/font-awesome.min.css"
             ],
             "scripts": [
+              "src/assets/admin-boostrap/js/bootstrap.bundle.min.js",
+              "src/assets/admin-boostrap/js/scripts.js",
+              "src/assets/admin-boostrap/js/all.js",
+
+
               "src/assets/ultras-1.0.0/js/modernizr.js",
               "src/assets/ultras-1.0.0/js/jquery-1.11.0.min.js",
               "src/assets/ultras-1.0.0/js/plugins.js",

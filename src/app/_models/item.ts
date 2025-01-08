@@ -7,4 +7,6 @@ export class Item {
     created_at?: Date;
     updated_at?: Date;
     Item_price: number;
+    Item_approvalstatus: string;
+    Item_status: string;
 }

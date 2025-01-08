@@ -55,7 +55,7 @@ export class RegisterComponent implements OnInit {
     this.accountService.register(this.form.value).subscribe({
       next: () => {
         this.loading = false;
-        Swal.fire('Success', 'Registration successful!', 'success').then(() => {
+        Swal.fire('Success', 'Registration successful! Please check your email for verification', 'success').then(() => {
           this.router.navigate(['/login']); // Redirect to login page after success
         });
       },

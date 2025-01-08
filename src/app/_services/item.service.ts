@@ -28,7 +28,7 @@ export class ItemService {
     // Create a new item
     create(itemData: FormData): Observable<any> {
         return this.http.post(`${baseUrl}`, itemData);
-      }
+    }
 
     // Update an item
     update(id: number, item: Partial<Item>, itemImage?: File): Observable<Item> {
@@ -41,7 +41,16 @@ export class ItemService {
     
         return this.http.put<Item>(`${baseUrl}/${id}`, formData);
     }
-    
+
+    // Approve an item
+    approve(id: number): Observable<any> {
+        return this.http.put(`${baseUrl}/${id}/approve`, {});
+    }
+
+    // Reject an item with a reason
+    reject(id: number, rejectionReason: string): Observable<any> {
+        return this.http.put(`${baseUrl}/${id}/reject`, { rejection_reason: rejectionReason });
+    }
 
     // Delete an item
     delete(id: number): Observable<void> {

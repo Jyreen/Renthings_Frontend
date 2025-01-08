@@ -21,9 +21,9 @@
         </div>
     </nav>
     -->
-      
-    <header id="header" *ngIf="account" style="background-color: #ffffff; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25); padding: 10px;">
-      <div id="header-wrap">
+    
+    <header id="header" *ngIf="account" style="background-color: #ffffff; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);">
+      <div id="header-wrap" *ngIf="account.role === Role.User">
         <nav class="primary-nav padding-small">
           <div class="container">
             <div class="row d-flex align-items-center">

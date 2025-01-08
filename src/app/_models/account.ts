@@ -14,4 +14,6 @@ export class Account {
     jwtToken?: string;
     refreshToken?: string;
     acc_created? : Date;
+    acc_status: string; 
+    acc_subscription: string; 
 }
