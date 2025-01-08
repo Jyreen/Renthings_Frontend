@@ -1,135 +1,134 @@
 <div class="profile-container">
-    <h1 class="profile-title">My Profile</h1>
-    <div class="profile-card">
-      <img
-        [src]="'http://localhost:4000/assets/' + account.acc_image"
-        alt="Profile Picture"
-        class="profile-picture"
-      />
-      <div class="profile-info">
-        <p><strong>Name:</strong> {{ account.acc_firstName }} {{ account.acc_lastName }}</p>
-        <p><strong>Email:</strong> {{ account.acc_email }}</p>
-        <p><strong>Address:</strong> {{ account.acc_address }}</p>
-        <a routerLink="update" class="btn-update">Update Profile</a>
-      </div>
+  <h1 class="profile-title">My Profile</h1>
+  <div class="profile-card">
+    <img
+      [src]="'http://localhost:4000/assets/' + account.acc_image"
+      alt="Profile Picture"
+      class="profile-picture"
+    />
+    <div class="profile-info">
+      <p><strong>Name:</strong> {{ account.acc_firstName }} {{ account.acc_lastName }}</p>
+      <p><strong>Email:</strong> {{ account.acc_email }}</p>
+      <p><strong>Address:</strong> {{ account.acc_address }}</p>
+      <a routerLink="update" class="btn-update">Update Profile</a>
     </div>
   </div>
-  
-  <style>
-  /* General Container */
-  .profile-container {
-    color: #ffffff;
-    padding: 40px;
-    border-radius: 16px;
-    max-width: 1400px;
-    margin: 60px auto;
-    text-align: center;
-    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.3);
-    position: relative;
-    overflow: hidden;
+</div>
+
+<style>
+/* General Container */
+.profile-container {
+  color: #ffffff;
+  padding: 40px;
+  border-radius: 16px;
+  max-width: 500px;
+  margin: 60px auto;
+  text-align: center;
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle Glow Effect */
+.profile-container::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 10%, transparent 70%);
+  animation: rotateGlow 10s linear infinite;
+  z-index: 0;
+}
+
+@keyframes rotateGlow {
+  0% {
+    transform: rotate(0deg);
   }
-  
-  /* Subtle Glow Effect */
-  .profile-container::before {
-    content: "";
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 10%, transparent 70%);
-    animation: rotateGlow 10s linear infinite;
-    z-index: 0;
+  100% {
+    transform: rotate(360deg);
   }
-  
-  @keyframes rotateGlow {
-    0% {
-      transform: rotate(0deg);
-    }
-    100% {
-      transform: rotate(360deg);
-    }
-  }
-  
-  .landing-page {
-    min-height: 100vh;
-    padding: 50px 0;
-  }
-  
-  /* Title Styling */
-  .profile-title {
-    font-size: 48px;
-    font-weight: bold;
-    margin-bottom: 30px;
-    color: #ffffff;
-    text-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
-    z-index: 1;
-    position: relative;
-  }
-  
-  /* Profile Card Styling */
-  .profile-card {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    background: rgba(0, 0, 0, 0.3);
-    padding: 20px;
-    border-radius: 12px;
-    backdrop-filter: blur(10px);
-    z-index: 1;
-  }
-  
-  /* Profile Picture */
-  .profile-picture {
-    height: 200px;
-    width: 200px;
-    object-fit: cover;
-    border-radius: 50%;
-    border: 5px solid rgba(255, 255, 255, 0.8);
-    margin-bottom: 20px;
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
-  }
-  
-  /* Info Section */
-  .profile-info {
-    text-align: left;
-    margin-top: 10px;
-    z-index: 1;
-    color: #ffffff;
-  }
-  
-  .profile-info p {
-    font-size: 20px;
-    margin: 8px 0;
-    line-height: 1.6;
-  }
-  
-  /* Button Styling */
-  .btn-update {
-    display: inline-block;
-    margin-top: 20px;
-    padding: 12px 30px;
-    background: linear-gradient(to right, #007bff, #0056b3);
-    color: #ffffff;
-    text-decoration: none;
-    font-size: 18px;
-    font-weight: bold;
-    border-radius: 50px;
-    transition: all 0.4s ease;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-  }
-  
-  .btn-update:hover {
-    background: linear-gradient(to right, #0056b3, #007bff);
-    transform: scale(1.05);
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
-  }
-  
-  /* Adding Hover Effects */
-  .profile-card:hover {
-    transform: translateY(-5px);
-    transition: all 0.3s ease;
-    box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.4);
-  }
-  </style>
-  
+}
+
+.landing-page {
+  min-height: 100vh;
+  padding: 50px 0;
+}
+
+/* Title Styling */
+.profile-title {
+  font-size: 48px;
+  font-weight: bold;
+  margin-bottom: 30px;
+  color: #ffffff;
+  text-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+  z-index: 1;
+  position: relative;
+}
+
+/* Profile Card Styling */
+.profile-card {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background: rgba(0, 0, 0, 0.3);
+  padding: 20px;
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+  z-index: 1;
+}
+
+/* Profile Picture */
+.profile-picture {
+  height: 200px;
+  width: 200px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 5px solid rgba(255, 255, 255, 0.8);
+  margin-bottom: 20px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Info Section */
+.profile-info {
+  text-align: left;
+  margin-top: 10px;
+  z-index: 1;
+  color: #ffffff;
+}
+
+.profile-info p {
+  font-size: 20px;
+  margin: 8px 0;
+  line-height: 1.6;
+}
+
+/* Button Styling */
+.btn-update {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 30px;
+  background: linear-gradient(to right, #007bff, #0056b3);
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 50px;
+  transition: all 0.4s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.btn-update:hover {
+  background: linear-gradient(to right, #0056b3, #007bff);
+  transform: scale(1.05);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
+}
+
+/* Adding Hover Effects */
+.profile-card:hover {
+  transform: translateY(-5px);
+  transition: all 0.3s ease;
+  box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.4);
+}
+</style>

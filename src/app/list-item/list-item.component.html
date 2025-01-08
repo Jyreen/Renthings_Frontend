@@ -248,74 +248,102 @@
     </div>
   </div>
   
-  <!-- Your Listings -->
-  <div class="your-listings" style="margin-top: 40px;">
-    <h2 style="text-align: center; margin-bottom: 20px; color: #fff;">Your Listings</h2>
-  
+<!-- Your Listings -->
+<div class="your-listings" style="margin-top: 40px;">
+  <h2 style="text-align: center; margin-bottom: 20px; color: #fff;">Your Listings</h2>
+
+  <div
+    *ngIf="items.length === 0"
+    style="text-align: center; color: gray; margin-top: 20px;"
+  >
+    No items added yet.
+  </div>
+
+  <div class="item-list" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; margin-top: 20px;">
     <div
-      *ngIf="items.length === 0"
-      style="text-align: center; color: gray; margin-top: 20px;"
+      *ngFor="let item of items"
+      class="item-card"
+      style="
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        width: 250px;
+        padding: 20px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        background-color: #fff;
+        position: relative;
+      "
     >
-      No items added yet.
-    </div>
-  
-    <div class="item-list" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; margin-top: 20px;">
-      <div
-        *ngFor="let item of items"
-        class="item-card"
+      <!-- Item Image -->
+      <img [src]="'http://localhost:4000/assets/' + item.Item_image" alt="{{ item.Item_name }}" style="width: 100%; height: 150px; object-fit: cover; border-radius: 4px; margin-bottom: 10px;" />
+
+      <!-- Item Details -->
+      <h4 style="margin-bottom: 10px; font-size: 18px; color: #333;">{{ item.Item_name }}</h4>
+      <p style="font-size: 14px; color: #666; margin-bottom: 10px;">{{ item.Item_Description }}</p>
+      <p style="font-size: 16px; color: #000; font-weight: bold;">₱{{ item.Item_price }}</p>
+
+      <!-- Approval Status -->
+      <p
         style="
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          text-align: center;
-          border: 1px solid #ddd;
-          border-radius: 8px;
-          width: 250px;
-          padding: 20px;
-          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-          background-color: #fff;
-          position: relative;
+          font-size: 14px;
+          margin-bottom: 5px;
+          font-weight: bold;
+          color: {{ item.Item_approvalstatus === 'Approved' ? 'green' : item.Item_approvalstatus === 'Rejected' ? 'red' : 'orange' }};
         "
       >
-        <img [src]="'http://localhost:4000/assets/' + item.Item_image" alt="{{ item.Item_name }}" style="width: 100%; height: 150px; object-fit: cover; border-radius: 4px; margin-bottom: 10px;"/>
-        <h4 style="margin-bottom: 10px; font-size: 18px; color: #333;">{{ item.Item_name }}</h4>
-        <p style="font-size: 14px; color: #666; margin-bottom: 10px;">{{ item.Item_Description }}</p>
-        <p style="font-size: 16px; color: #000; font-weight: bold;">₱{{ item.Item_price }}</p>
-        <!-- Buttons -->
-        <div style="display: flex; gap: 10px; margin-top: 10px;">
-          <!-- Edit Button -->
-          <button
-            class="btn btn-warning"
-            (click)="openUpdateModal(item)"
-            style="
-              padding: 5px 10px;
-              border-radius: 4px;
-              border: none;
-              background-color: #ffc107;
-              color: white;
-              cursor: pointer;
-            "
-          >
-            Edit
-          </button>
-  
-          <!-- Delete Button -->
-          <button
-            class="btn btn-danger"
-            (click)="deleteItem(item.Item_id)"
-            style="
-              padding: 5px 10px;
-              border-radius: 4px;
-              border: none;
-              background-color: #dc3545;
-              color: white;
-              cursor: pointer;
-            "
-          >
-            Delete
-          </button>
-        </div>
+         {{ item.Item_approvalstatus }}
+      </p>
+
+      <!-- General Status -->
+      <p
+        style="
+          font-size: 14px;
+          margin-bottom: 10px;
+          font-weight: bold;
+          color: {{ item.Item_status === 'Available' ? 'green' : 'red' }};
+        "
+      >
+        Status: {{ item.Item_status }}
+      </p>
+
+      <!-- Buttons -->
+      <div style="display: flex; gap: 10px; margin-top: 10px;">
+        <!-- Edit Button -->
+        <button
+          class="btn btn-warning"
+          (click)="openUpdateModal(item)"
+          style="
+            padding: 5px 10px;
+            border-radius: 4px;
+            border: none;
+            background-color: #ffc107;
+            color: white;
+            cursor: pointer;
+          "
+        >
+          Edit
+        </button>
+
+        <!-- Delete Button -->
+        <button
+          class="btn btn-danger"
+          (click)="deleteItem(item.Item_id)"
+          style="
+            padding: 5px 10px;
+            border-radius: 4px;
+            border: none;
+            background-color: #dc3545;
+            color: white;
+            cursor: pointer;
+          "
+        >
+          Delete
+        </button>
       </div>
     </div>
   </div>
+</div>
 </div>

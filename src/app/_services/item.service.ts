@@ -56,4 +56,12 @@ export class ItemService {
     delete(id: number): Observable<void> {
         return this.http.delete<void>(`${baseUrl}/${id}`);
     }
+
+    getApprovedItems(): Observable<Item[]> {
+        return this.http.get<Item[]>(`${baseUrl}/approved`);
+    }
+
+    getItemById(id: number): Observable<any> {
+        return this.http.get<any>(`${baseUrl}/${id}`);
+    }
 }
