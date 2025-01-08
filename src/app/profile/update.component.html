@@ -75,12 +75,13 @@
         </div>
       </div>
 
-      <div class="form-actions text-center">
-        <button type="submit" [disabled]="loading" class="btn btn-primary w-100">
+      <div class="form-actions text-center align-items center">
+
+        <a type="submit" class="btn btn-primary w-100">
           <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
           Update Profile
-        </button>
-        <a routerLink="../" class="btn btn-link mt-2">Cancel</a>
+        </a> |
+        <a routerLink="../" class="btn btn-link w-100">Cancel</a>
       </div>
     </form>
   </div>

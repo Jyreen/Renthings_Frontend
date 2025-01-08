@@ -16,6 +16,7 @@ import { HomeComponent } from './home/home.component';
 import { RentItemsComponent } from './rent-items/rent-items.component';
 import { ItemDetailsComponent } from './rent-items/item-details.component';
 import { ListItemComponent } from './list-item/list-item.component';
+import { MessageComponent } from './messaging/message.component';
 
 
 @NgModule({
@@ -34,7 +35,8 @@ import { ListItemComponent } from './list-item/list-item.component';
         HomeComponent,
         RentItemsComponent,
         ItemDetailsComponent, 
-        ListItemComponent
+        ListItemComponent,
+        MessageComponent
     ],
     providers: [
         { provide: APP_INITIALIZER, useFactory: appInitializer, multi: true, deps: [AccountService] },

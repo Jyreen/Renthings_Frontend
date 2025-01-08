@@ -10,6 +10,7 @@ import { HomeComponent } from './home/home.component';
 import { RentItemsComponent } from './rent-items/rent-items.component';
 import { ItemDetailsComponent } from './rent-items/item-details.component';
 import { ListItemComponent } from './list-item/list-item.component';
+import { MessageComponent } from './messaging/message.component';
 
 
 
@@ -25,7 +26,7 @@ const routes: Routes = [
     { path: 'rent', component: RentItemsComponent },
     { path: 'item-detail', component: ItemDetailsComponent},
     { path: 'list', component: ListItemComponent},
-
+    { path: 'message', component: MessageComponent},
 
     { path: '**', redirectTo: '' },
     
