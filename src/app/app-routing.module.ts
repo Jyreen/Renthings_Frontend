@@ -27,7 +27,7 @@ const routes: Routes = [
     { path: 'rent', component: RentItemsComponent },
     { path: 'admin', loadChildren: adminModule, canActivate: [AuthGuard], data: { roles: [Role.Admin] }},
 
-    { path: 'item-detail', component: ItemDetailsComponent},
+    { path: 'item/:id', component: ItemDetailsComponent },
     { path: 'list', component: ListItemComponent},
     { path: 'message', component: MessageComponent},
 

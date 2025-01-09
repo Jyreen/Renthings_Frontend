@@ -1,10 +1,26 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ItemService } from '../_services/item.service';
+import { Item } from '../_models/item';
 
 @Component({
   selector: 'app-home',
   templateUrl: './rent-items.component.html'
 })
-export class RentItemsComponent {
+export class RentItemsComponent implements OnInit {
+  approvedItems: Item[] = [];
+
+  constructor(private itemService: ItemService) {}
+
+  ngOnInit(): void {
+    this.loadApprovedItems();
+  }
+
+  loadApprovedItems(): void {
+    this.itemService.getApprovedItems().subscribe(
+      (items) => (this.approvedItems = items),
+      (error) => console.error('Failed to fetch approved items', error)
+    );
 
     
+  }
 }

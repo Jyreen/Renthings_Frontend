@@ -33,8 +33,8 @@
               "src/assets/ultras-1.0.0/icomoon/icomoon.css",
               "src/assets/ultras-1.0.0/css/vendor.css",
               "src/assets/ultras-1.0.0/style.css",
-              "src/assets/css/css2.css"
-              
+              "src/assets/css/css2.css",
+              "src/assets/font-awesome.min.css"
             ],
             "scripts": [
               "src/assets/admin-boostrap/js/bootstrap.bundle.min.js",

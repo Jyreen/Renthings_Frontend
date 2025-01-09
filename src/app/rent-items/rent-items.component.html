@@ -1,4 +1,4 @@
-<section class="site-banner jarallax min-height300 padding-large" style="background: url(images/hero-image.jpg) no-repeat; background-position: top;">
+<section class="site-banner jarallax min-height300 padding-large" style="background: url(assets/ultras-1.0.0/images/banner2.jpg) no-repeat; background-position: top;">
     <div class="container">
       <div class="row">
         <div class="col-md-12">
@@ -34,75 +34,38 @@
             <div class="tab-content">
               <div id="all" data-tab-content class="active">
                 <div class="row d-flex flex-wrap">
-                  <div class="product-item col-lg-4 col-md-6 col-sm-6">
+                  <div
+                    *ngFor="let item of approvedItems"
+                    class="product-item col-lg-4 col-md-6 col-sm-6"
+                  >
                     <div class="image-holder">
-                      <img src="assets/Images/items/1.png" alt="Books" class="product-image">
+                      <img [src]="'http://localhost:4000/assets/' + item.Item_image" alt="{{ item.Item_name }}" class="product-image"
+                      [routerLink]="['/item', item.Item_id]" />
                     </div>
                     <div class="cart-concern">
                       <div class="cart-button d-flex justify-content-between align-items-center">
-                        <button type="button" class="btn-wrap cart-link d-flex align-items-center">add to cart <i class="icon icon-arrow-io"></i>
+                        <button type="button" class="btn-wrap cart-link d-flex align-items-center" [routerLink]="['/item', item.Item_id]">
+                          View Item <i class="icon icon-arrow-io"></i>
                         </button>
-                        <button type="button" class="view-btn tooltip
-                            d-flex">
+                        <button type="button" class="view-btn tooltip d-flex" [routerLink]="['/item', item.Item_id]">
                           <i class="icon icon-screen-full"></i>
                           <span class="tooltip-text">Quick view</span>
-                        </button>
-                        <button type="button" class="wishlist-btn">
-                          <i class="icon icon-heart"></i>
                         </button>
                       </div>
                     </div>
                     <div class="product-detail">
                       <h3 class="product-title">
-                        <a href="single-product.html">Drill 5kBE</a>
+                        <a [routerLink]="['/item', item.Item_id]">{{ item.Item_name }}</a>
                       </h3>
-                      <div class="item-price text-primary">₱40.00</div>
-                    </div>
-                  </div>
-                  <div class="product-item col-lg-4 col-md-6 col-sm-6">
-                    <div class="image-holder">
-                      <img src="assets/Images/items/2.png" alt="Books" class="product-image">
-                    </div>
-                    <div class="cart-concern">
-                      <div class="cart-button d-flex justify-content-between align-items-center">
-                        <button type="button" class="btn-wrap cart-link d-flex align-items-center">add to cart <i class="icon icon-arrow-io"></i>
-                        </button>
-                        <button type="button" class="view-btn tooltip
-                            d-flex">
-                          <i class="icon icon-screen-full"></i>
-                          <span class="tooltip-text">Quick view</span>
-                        </button>
-                        <button type="button" class="wishlist-btn">
-                          <i class="icon icon-heart"></i>
-                        </button>
-                      </div>
-                    </div>
-                    <div class="product-detail">
-                      <h3 class="product-title">
-                        <a href="single-product.html">Spanner</a>
-                      </h3>
-                      <div class="item-price text-primary">₱35.00</div>
+                      <div class="item-price text-primary">₱{{ item.Item_price }}</div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-            <nav class="navigation paging-navigation text-center padding-medium" role="navigation">
-              <div class="pagination loop-pagination d-flex justify-content-center">
-                <a href="#" class="pagination-arrow d-flex align-items-center">
-                  <i class="icon icon-arrow-left"></i>
-                </a>
-                <span aria-current="page" class="page-numbers current">1</span>
-                <a class="page-numbers" href="#">2</a>
-                <a class="page-numbers" href="#">3</a>
-                <a href="#" class="pagination-arrow d-flex align-items-center">
-                  <i class="icon icon-arrow-right"></i>
-                </a>
-              </div>
-            </nav>
           </div>
         </section>
-
+        
         <aside class="col-md-3">
           <div class="sidebar">
             <div class="widgets widget-menu">
@@ -150,29 +113,8 @@
                 </li>
               </ul>
             </div>
-            <div class="widgets widget-price-filter">
-              <h5 class="widget-title">Filter By Price</h5>
-              <ul class="product-tags sidebar-list list-unstyled">
-                <li class="tags-item">
-                  <a href="">Less than $10</a>
-                </li>
-                <li class="tags-item">
-                  <a href="">$10- $20</a>
-                </li>
-                <li class="tags-item">
-                  <a href="">$20- $30</a>
-                </li>
-                <li class="tags-item">
-                  <a href="">$30- $40</a>
-                </li>
-                <li class="tags-item">
-                  <a href="">$40- $50</a>
-                </li>
-              </ul>
-            </div>
           </div>
         </aside>
-        
       </div>        
     </div>      
   </div>
