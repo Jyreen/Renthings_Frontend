@@ -29,6 +29,6 @@ export class LayoutComponent {
     logout() {
         this.accountService.logout();
         this.router.navigate(['account/login-register']); // Redirect to login on logout
-      }   
+    }   
 
 }
